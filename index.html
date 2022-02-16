@@ -8,9 +8,9 @@
 <script type="module" src="https://code4fukui.github.io/glb-viewer/wasd-controls-mode2.js"></script>
 <script type="module">
 onload = () => {
-  setTimeout(() => {
+  base.addEventListener("model-loaded", () => {
     cake.setAttribute("position", { x: -1.1, y: .48, z: 3 });
-  }, 1000);
+  });
   cake.addEventListener("click", () => {
     window.open("https://slim.velvet.jp/", "_blank");
   });
@@ -24,7 +24,7 @@ onload = () => {
     <a-asset-item id="base-asset" src="./cafe-slim.glb"></a-asset-item>
     <a-asset-item id="cake-asset" src="./cafe-slim-cake-reduced-jpg.glb"></a-asset-item>
   </a-assets>
-  <a-entity gltf-model="#base-asset" position="0 0 0"></a-entity>
+  <a-entity id="base" gltf-model="#base-asset" position="0 0 0"></a-entity>
   <a-entity id="cake" gltf-model="#cake-asset" position="-1.1 .48 300" scale="1 1 1"></a-entity>
   <a-entity light="type: ambient; color: #FFF"></a-entity>
     <!--<a-plane color="#888" height="300" width="300" rotation="-90 0 0"></a-plane>-->
